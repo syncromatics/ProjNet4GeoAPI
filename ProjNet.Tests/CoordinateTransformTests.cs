@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GeoAPI;
 using GeoAPI.CoordinateSystems;
 using GeoAPI.CoordinateSystems.Transformations;
 using GeoAPI.Geometries;
@@ -896,7 +897,7 @@ namespace ProjNet.UnitTests
             public double GetY(int index) => this.coordinates[index].Y;
             public Coordinate GetCoordinateCopy(int i) => new Coordinate(this.coordinates[i]);
             public Coordinate GetCoordinate(int i) => this.coordinates[i];
-            object ICloneable.Clone() => this.Clone();
+
             public CoordinateArraySequence Clone() => new CoordinateArraySequence(Array.ConvertAll(this.coordinates, c => new Coordinate(c)));
             public Coordinate[] ToCoordinateArray() => this.coordinates;
 
@@ -963,6 +964,11 @@ namespace ProjNet.UnitTests
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+            }
+
+            object GeoAPI.ICloneable.Clone()
+            {
+                return this.Clone();
             }
         }
     }

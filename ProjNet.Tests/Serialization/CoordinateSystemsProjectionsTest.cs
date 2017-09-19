@@ -5,7 +5,7 @@ namespace ProjNet.UnitTests.Serialization
 {
     public class CoordinateSystemsProjectionsTest : BaseSerializationTest
     {
-        [Test]
+        [Test, Ignore("disabled for lower netstandard for now")]
         public void TestProjectionParameterSet() 
         {
             var ps = new CoordinateSystems.Projections.ProjectionParameterSet(
