@@ -313,7 +313,7 @@ namespace ProjNet.UnitTests.Converters.WKT
             }
 
             Assert.IsNotNull (fcs);
-            Assert.IsNotNullOrEmpty (fcs.ToBase ());
+            Assert.IsNotNull(fcs.ToBase());
             Assert.IsNotNull (fcs.BaseCoordinateSystem);
 
             Assert.AreEqual ("Local coordinate system MNAU (based on Gauss-Krueger)", fcs.Name);

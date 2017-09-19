@@ -1,68 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)..\</SolutionDir>
     <RootNamespace>ProjNet</RootNamespace>
-    <TargetFrameworks>net35-client;net40-client;net403-client;net45;netstandard1.0</TargetFrameworks>
-    <OutputPath>$(SolutionDir)$(Configuration)\$(Platform)</OutputPath>
-    <DocumentationFile>$(OutputPath)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GeoAPIPackageReferenceVersion>1.7.5-pre4</GeoAPIPackageReferenceVersion>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(SolutionDir)scskey.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    <Authors>Morton Nielsen, NetTopologySuite - Team</Authors>
+    <PackageLicenseUrl>http://projnet.codeplex.com/license</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/NetTopologySuite/ProjNet4GeoAPI</PackageProjectUrl>
+    <Description>.NET Spatial Reference and Projection Engine.
+Proj.NET performs point-to-point coordinate conversions between geodetic coordinate systems for use in fx. Geographic Information Systems (GIS) or GPS applications. The spatial reference model used adheres to the Simple Features specification.</Description>
+    <Copyright>Copyright 2006-2015</Copyright>
+    <PackageTags>OGC SFS Projection</PackageTags>
+    <PackageId>Syncromatics.ProjNET</PackageId>
   </PropertyGroup>
-
-  <!-- Client Profile frameworks don't have built-in shortcuts, so we need to specify these. -->
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35-client' ">
-    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net40-client' ">
-    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net403-client' ">
-    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net35-client' Or '$(TargetFramework)' == 'net40-client' Or '$(TargetFramework)' == 'net403-client' Or '$(TargetFramework)' == 'net45' ">
-    <RequiresFrameworkAssemblyReferences>true</RequiresFrameworkAssemblyReferences>
-    <DebugType>full</DebugType>
-
-    <DefineConstants>$(DefineConstants);FEATURE_DESERIALIZATION_CONSTRUCTOR</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_COMVISIBLEATTRIBUTE</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_RUNTIME_INTEROPSERVICES_GUIDATTRIBUTE</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_SERIALIZABLEATTRIBUTE</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_THREADPOOL</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_GETCONSTRUCTORS</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_TYPE_ISASSIGNABLEFROM</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_REFLECTION_TYPEINFO</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_TASKS_TASK_RUN</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' ">
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_REFLECTION_TYPEINFO</DefineConstants>
-    <DefineConstants>$(DefineConstants);HAS_SYSTEM_THREADING_TASKS_TASK_RUN</DefineConstants>
-  </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="GeoAPI" Version="$(GeoAPIPackageReferenceVersion)" />
+    <PackageReference Include="Syncromatics.GeoAPI" Version="1.7.5" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Include="$(SolutionDir)scskey.snk" />
-  </ItemGroup>
-
 </Project>

@@ -137,9 +137,9 @@ namespace ProjNet
 #elif HAS_SYSTEM_THREADING_THREADPOOL
             System.Threading.ThreadPool.QueueUserWorkItem(FromEnumeration, new[] { this, enumObj });
 #else
-#error Must have one or the other
+	        System.Threading.Tasks.Task.Run(() => FromEnumeration((new[] { this, enumObj })));
 #endif
-        }
+		}
 
         //private CoordinateSystemServices(ICoordinateSystemFactory coordinateSystemFactory,
         //    ICoordinateTransformationFactory coordinateTransformationFactory,
